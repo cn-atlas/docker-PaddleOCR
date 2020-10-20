@@ -1,4 +1,4 @@
-ROM paddlepaddle/paddle:latest
+FROM paddlepaddle/paddle:latest
 
 RUN pip3 install paddlehub --upgrade -i https://mirrors.aliyun.com/pypi/simple
 
