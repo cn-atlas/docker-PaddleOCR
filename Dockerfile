@@ -6,7 +6,7 @@ RUN mkdir -p /opt && cd /opt
 
 RUN git clone https://github.com/PaddlePaddle/PaddleOCR
 
-RUN cd /opt/PaddleOCR && pip3 install -r requirments.txt -i https://mirrors.aliyun.com/pypi/simple
+RUN pwd && cd /opt/PaddleOCR && pip3 install -r requirments.txt -i https://mirrors.aliyun.com/pypi/simple
 
 RUN mkdir -p /opt/PaddleOCR/inference
 
