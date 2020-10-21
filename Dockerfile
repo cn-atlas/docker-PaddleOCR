@@ -4,9 +4,9 @@ FROM python:3.7-buster
 
 RUN pip3.7 install opencv-python==4.2.0.32 paddlehub paddlepaddle --upgrade -i https://mirrors.aliyun.com/pypi/simple
 
-#RUN mkdir -p /opt && cd /opt && git clone https://gitee.com/paddlepaddle/PaddleOCR 
+RUN mkdir -p /opt && cd /opt && git clone https://gitee.com/paddlepaddle/PaddleOCR 
 
-#RUN cd /opt/PaddleOCR && pip3.7 install -r requirments.txt -i https://mirrors.aliyun.com/pypi/simple
+RUN cd /opt/PaddleOCR && pip3.7 install -r requirments.txt -i https://mirrors.aliyun.com/pypi/simple
 
 #RUN mkdir -p /opt/PaddleOCR/inference
 
@@ -25,6 +25,6 @@ RUN pip3.7 install opencv-python==4.2.0.32 paddlehub paddlepaddle --upgrade -i h
 
 EXPOSE 8866
 
-#WORKDIR /opt/PaddleOCR
+WORKDIR /opt/PaddleOCR
 
-CMD ["/bin/bash","-c","export PYTHONPATH=/opt/PaddleOCR &&  hub serving start -m chinese_ocr_db_crnn_mobile -p 8866 --use_multiprocess"]
+CMD ["/bin/bash","-c","export PYTHONPATH=/opt/PaddleOCR && hub serving start -m chinese_ocr_db_crnn_mobile -p 8866 --use_multiprocess"]
