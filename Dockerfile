@@ -2,11 +2,9 @@ FROM paddlepaddle/paddle:latest
 
 RUN pip3 install paddlehub --upgrade -i https://mirrors.aliyun.com/pypi/simple
 
-RUN mkdir -p /opt && cd /opt
+RUN mkdir -p /opt && cd /opt && git clone https://github.com/PaddlePaddle/PaddleOCR
 
-RUN git clone https://github.com/PaddlePaddle/PaddleOCR
-
-RUN pwd && cd /opt/PaddleOCR && pip3 install -r requirments.txt -i https://mirrors.aliyun.com/pypi/simple
+RUN cd /opt/PaddleOCR && pip3 install -r requirments.txt -i https://mirrors.aliyun.com/pypi/simple
 
 RUN mkdir -p /opt/PaddleOCR/inference
 
@@ -19,7 +17,7 @@ RUN tar xf /opt/PaddleOCR/inference/ch_ppocr_mobile_v1.1_det_infer.tar -C /opt/P
 ADD https://paddleocr.bj.bcebos.com/20-09-22/cls/ch_ppocr_mobile_v1.1_cls_infer.tar /home/PaddleOCR/inference
 RUN tar xf /opt/PaddleOCR/inference/ch_ppocr_mobile_v1.1_cls_infer.tar -C /opt/PaddleOCR/inference
 
-RUN cd /opt/PaddleOCR && export PYTHONPATH=/home/PaddleOCR && hub install deploy/hubserving/ocr_system/
+RUN cd /opt/PaddleOCR && export PYTHONPATH=/opt/PaddleOCR && hub install deploy/hubserving/ocr_system/
 
 EXPOSE 8866
 
