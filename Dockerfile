@@ -1,6 +1,6 @@
 FROM paddlepaddle/paddle:latest
 
-RUN pip3.7 install paddlehub --upgrade -i https://mirrors.aliyun.com/pypi/simple
+RUN pip3.7 install paddlehub paddlepaddle --upgrade -i https://mirrors.aliyun.com/pypi/simple
 
 RUN mkdir -p /opt && cd /opt && git clone https://github.com/PaddlePaddle/PaddleOCR
 
