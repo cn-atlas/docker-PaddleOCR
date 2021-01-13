@@ -6,7 +6,7 @@ RUN pip3.7 install opencv-python==4.2.0.32 paddlehub paddlepaddle --upgrade -i h
 
 RUN mkdir -p /opt && cd /opt && git clone https://gitee.com/paddlepaddle/PaddleOCR 
 
-RUN cd /opt/PaddleOCR && pip3.7 install -r requirments.txt -i https://mirrors.aliyun.com/pypi/simple
+RUN cd /opt/PaddleOCR && pip3.7 install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple
 
 #RUN mkdir -p /opt/PaddleOCR/inference
 
