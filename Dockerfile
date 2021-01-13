@@ -28,3 +28,4 @@ EXPOSE 8866
 WORKDIR /opt/PaddleOCR
 
 CMD ["/bin/bash","-c","export PYTHONPATH=/opt/PaddleOCR && hub serving start -m chinese_ocr_db_crnn_server -p 8866 --use_multiprocess"]
+
